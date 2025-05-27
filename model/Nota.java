@@ -1,6 +1,5 @@
 package model;
 
-
 public class Nota {
     private Aluno aluno;
     private Disciplina disciplina;
@@ -24,6 +23,10 @@ public class Nota {
 
     public double getValor() {
         return valor;
+    }
+
+    public void setValor(double valor) {
+    this.valor = valor;
     }
 
     public int getTrimestre() {

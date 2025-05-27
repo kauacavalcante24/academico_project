@@ -1,8 +1,4 @@
-import java.util.Scanner;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import model.*;
 import view.View;
 
@@ -24,20 +20,20 @@ public class Main {
         System.out.print("Quantos cursos deseja cadastrar? (digitar o número): ");
         String curso_input = input.nextLine();
         int qtdCursos = Integer.parseInt(curso_input);
-        View.cadastrarCurso(cursos, qtdCursos);
+        View.cadastroCurso(cursos, qtdCursos);
 
         System.out.println("Disciplinas ------------------");
         System.out.println();       
         System.out.print("Quantas disciplinas deseja cadastrar? (digitar o número): ");
         String disciplina_input = input.nextLine();
         int qtdDisciplinas = Integer.parseInt(disciplina_input);
-        View.cadastrarDisciplina(disciplinas, qtdDisciplinas);
+        View.cadastroDisciplina(disciplinas, qtdDisciplinas);
 
         System.out.println("Professores ------------------");
         System.out.println();
         System.out.print("Quantos professores deseja cadastrar? (digitar o número) ");
         int qtdProfessores = Integer.parseInt(input.nextLine());
-        View.cadastrarProfessor(cursos, professores, disciplinas, qtdProfessores);
+        View.cadastroProfessor(cursos, professores, disciplinas, qtdProfessores);
 
         System.out.println("Alunos ------------------");
         System.out.println();        
@@ -52,7 +48,19 @@ public class Main {
         View.cadastrarNota(alunos, disciplinas, notas, qtdNotas);
 
         View.mostrarRelatorios(alunos, notas);
+        View.mostrarRelatorioGeral(alunos, professores, cursos, disciplinas);
 
+        View.relatorioAlunosPorCursoEDisciplina(cursos, alunos, disciplinas, notas);
+
+        View.relatorioNotasPorAlunoPorCurso(cursos, alunos, notas);
+
+        View.relatorioConclusaoCurso(alunos, notas);
+        
+        for (Aluno aluno : alunos.values()) {
+            if (View.checarConclusaoCurso(aluno, notas)) {
+                View.emitirCertificado(aluno);
+            }
+        }
         input.close();
     }
 }

@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 
-
 public class Professor {
     private String matricula;
     private String nome;
