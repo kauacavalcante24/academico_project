@@ -26,9 +26,6 @@ public class Disciplina {
         this.nome = nome;
     }
     public String toString() {
-        return "Disciplina{" +
-               "codigo='" + codigo + '\'' +
-               ", nome='" + nome + '\'' +
-               '}';
+        return "Id " + codigo + " " + nome;
     }
 }

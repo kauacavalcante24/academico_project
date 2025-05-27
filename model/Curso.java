@@ -19,6 +19,6 @@ public class Curso {
     }
 
     public String toString() {
-        return "(ID: " + codigo + " -> Nome: " + nome + ") - ";
+        return "Id " + codigo + " " + nome;
     }
 }

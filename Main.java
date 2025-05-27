@@ -1,6 +1,8 @@
 import java.util.*;
 import model.*;
 import view.View;
+import service.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -47,18 +49,15 @@ public class Main {
         int qtdNotas = Integer.parseInt(input.nextLine());
         View.cadastrarNota(alunos, disciplinas, notas, qtdNotas);
 
-        View.mostrarRelatorios(alunos, notas);
-        View.mostrarRelatorioGeral(alunos, professores, cursos, disciplinas);
-
-        View.relatorioAlunosPorCursoEDisciplina(cursos, alunos, disciplinas, notas);
-
-        View.relatorioNotasPorAlunoPorCurso(cursos, alunos, notas);
-
-        View.relatorioConclusaoCurso(alunos, notas);
+        Relatorios.mostrarRelatorios(alunos, notas);
+        Relatorios.mostrarRelatorioGeral(alunos, professores, cursos, disciplinas);
+        Relatorios.relatorioAlunosPorCursoEDisciplina(cursos, alunos, disciplinas, notas);
+        Relatorios.relatorioNotasPorAlunoPorCurso(cursos, alunos, notas);
+        Relatorios.relatorioConclusaoCurso(alunos, notas);
         
         for (Aluno aluno : alunos.values()) {
-            if (View.checarConclusaoCurso(aluno, notas)) {
-                View.emitirCertificado(aluno);
+            if (Conclusao.checarConclusaoCurso(aluno, notas)) {
+                Conclusao.emitirCertificado(aluno);
             }
         }
         input.close();
