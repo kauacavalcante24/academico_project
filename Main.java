@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import model.*;
 import view.View;
 import service.*;
@@ -49,12 +53,14 @@ public class Main {
         int qtdNotas = Integer.parseInt(input.nextLine());
         View.cadastrarNota(alunos, disciplinas, notas, qtdNotas);
 
+        View.limparTerminal();
+
         Relatorios.mostrarRelatorios(alunos, notas);
         Relatorios.mostrarRelatorioGeral(alunos, professores, cursos, disciplinas);
         Relatorios.relatorioAlunosPorCursoEDisciplina(cursos, alunos, disciplinas, notas);
         Relatorios.relatorioNotasPorAlunoPorCurso(cursos, alunos, notas);
         Relatorios.relatorioConclusaoCurso(alunos, notas);
-        
+
         for (Aluno aluno : alunos.values()) {
             if (Conclusao.checarConclusaoCurso(aluno, notas)) {
                 Conclusao.emitirCertificado(aluno);

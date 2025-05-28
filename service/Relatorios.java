@@ -257,7 +257,7 @@ public class Relatorios {
             System.out.println("Aluno: " + aluno.getNome() +
                             " | Curso: " + aluno.getCurso().getNome() +
                             " | Disciplinas aprovadas: " + disciplinasAprovadas +
-                            " | Concluiu curso? " + (concluiu ? "Sim" : "Não"));
-            }
+                            " | Situação do curso: " + (concluiu ? "Concluído" : "Não concluído"));
+        }
     }
 }

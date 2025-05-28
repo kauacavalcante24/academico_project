@@ -13,6 +13,7 @@ import model.Nota;
 
 public class Conclusao {
     public static boolean checarConclusaoCurso(Aluno aluno, List<Nota> notas) {
+
         // Mapa para armazenar as notas por disciplina para esse aluno
         Map<String, List<Double>> notasPorDisciplina = new HashMap<>();
 
@@ -49,10 +50,10 @@ public class Conclusao {
         LocalDate dataAtual = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        System.out.println("\n========== CERTIFICADO DE CONCLUSÃO ==========");
-        System.out.println("Aluno: " + aluno.getNome());
-        System.out.println("Curso: " + aluno.getCurso().getNome());
+        System.out.println("\n==================== CERTIFICADO DE CONCLUSÃO =====================");
+        System.out.println("\nCertificamos que " + aluno.getNome() + " concluiu com êxito o curso de " + aluno.getCurso().getNome() + ".");
         System.out.println("Data de emissão: " + dataAtual.format(formatter));
-        System.out.println("Parabéns pela conclusão do curso!\n");
+        System.out.println("Parabéns pela conclusão do curso!");
+        System.out.println("\n===================================================================");
     }
 }
